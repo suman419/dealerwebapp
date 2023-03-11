@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static "css/login.css" %}">
+
+  </head>
+  <body>
+
+
+
+<div class="container">
+  {% if messages %}
+     {% for message in messages %}
+
+<div class="alert alert-{{message.tags }}">
+  {{message}}
+</div>
+
+     {% endfor %}
+  {% endif %}
+
+</div>
+
+    <div class="loginBox">
+   <img src="{% static "img/user.png" %}" height="150" width="150"  alt="My image" class="user">
+<h2>Log In Here</h2>
+
+
+
+<form method = "POST" action="{% url 'login' %}">
+  {% csrf_token %}
+  <div class="form-floating mb-3">
+      <label style="color: #33ffff">User Name</label>
+    <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Enter User Name">
+
+  </div>
+  <div class="form-floating mb-3">
+      <label style="color: #33ffff">Password</label>
+    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+
+  </div>
+
+  <div class="d-grid">
+    <button class="btn btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+  </div>
+&nbsp
+  <div class="text-center">
+    <a style="color: #33ffff; " class="small" href="#">Forgot password?</a>
+  </div>
+</form>
+&nbsp
+<div class="text-center">
+  <a style ="margin-top:15px;" href="{% url 'home' %}"><button class="btn text-right btn-success" type="submit">Back To Home</button></a>
+</div>
+    </div>
+  </body>
+</html>

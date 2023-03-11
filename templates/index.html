@@ -1,0 +1,58 @@
+ {% extends 'base.html' %}
+ {% block content %}
+
+
+<form action="" enctype="multipart/form-data" class="shadow p-5" method="post" id="dealerForm" data-blocks-url="{% url 'ajax_load_blocks' %}" novalidate>
+  {% csrf_token %}
+    {% for fm in form %}
+       <div class="form-group mb-3">
+       {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+       </div>
+     {% endfor %}
+  <br>
+  <input type="submit" class="btn btn-success"></button>
+  {% if form.non_field_errors %}
+       {% for error in form.non_field_errors %}
+        <p class="alert alert-danger my-3">{{error}}</p>
+       {% endfor %}
+     {% endif %}
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+  $("#id_anumandal").change(function () {
+    var url = $("#dealerForm").attr("data-blocks-url");  // get the url of the `load_cities` view
+    var anumandalId = $(this).val();  // get the selected country ID from the HTML input
+
+    $.ajax({                       // initialize an AJAX request
+      url: '{% url 'ajax_load_blocks' %}',                    // set the url of the request (= localhost:8000/hr/ajax/load-blocks/)
+      data: {
+        'anumandal': anumandalId       // add the country id to the GET parameters
+      },
+      success: function (data) {   // `data` is the return of the `load_blocks` view function
+        $("#id_block").html(data);  // replace the contents of the city input with the data that came from the server
+      }
+    });
+
+  });
+  // this one is for fetching vanue data
+  $("#id_block").change(function () { //django-model-form created this id
+    var url = $("#dealerForm").attr("data-blocks-url");  // get the url of the `load_blocks` view
+    var blockId = $(this).val();  // get the selected country ID from the HTML input
+
+    $.ajax({                       // initialize an AJAX request
+      url: '{% url 'ajax_load_panchayats' %}',                    // set the url of the request (= localhost:8000/hr/ajax/load-blocks/) person_form.html template has this url var
+      data: {
+        'block': blockId       // add the anumandal  id to the GET parameters
+      },
+      success: function (data) {   // `data` is the return of the `load_blocks` view function
+        $("#id_panchayat").html(data);  // replace the contents of the block input with the data that came from the server
+      }
+    });
+
+  });
+</script>
+
+
+ {% endblock content %}

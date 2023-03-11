@@ -1,0 +1,132 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+  <title>Dealer Information</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" src="{% static 'css/detailview.css'%}">
+  <script  src="{% static 'js/detailview.js'%}"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-light static-top" style="background-color: #e3f2fd;">
+      <div class="container">
+          <a class="navbar-brand" href="#!">Katihar District</a>
+          <a class="btn btn-danger btn-sm" href="{% url 'logout' %}">Logout</a>
+      </div>
+
+      <a class="btn btn-success btn-sm" href="{% url 'dealerlist' %}">Back</a>
+  </nav>
+
+<div class="container rounded bg-white mt-3 mb-3">
+    <div class="row">
+        <div class="col-md-3 border-right">
+
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <img class="rounded-circle mt-5" width="150px" src="{{dealer_detail.img.url}}" >
+          <span class="font-weight-bold">{{dealer_detail.full_name}}</span><span class="text-black-50">{{dealer_detail.email}}</span><span class="text-black-50">{{dealer_detail.zila}} </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="text-right">Dealer Profile Details</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12" ><label class="labels">Name :</label> <span class="font-weight-bold"> {{dealer_detail.full_name}}</span></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Husband/Father's Name :</label> {{dealer_detail.husband_father_name}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Block Name :</label> {{dealer_detail.block}}</div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Panchayat Name :</label> {{dealer_detail.panchayat}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Mobile No :</label> {{dealer_detail.mobile_number}}</div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12" ><label class="labels">Category :</label> <span class="font-weight-bold"> {{dealer_detail.category}}</span></div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Gender :</label> {{dealer_detail.gender}}</div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Date of birth :</label> <span class="font-weight-bold"> {{dealer_detail.dob}} </span></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Highest Qualification :</label> {{dealer_detail.qualication}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Aadhar Number :</label> {{dealer_detail.aadhar_number}}</div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">House/Shop No. :</label> {{dealer_detail.house_no}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Holding No :</label> {{dealer_detail.holding_no}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Khata Number :</label> {{dealer_detail.khata_no}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Ward No :</label> {{dealer_detail.holding_no}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Khesra Number :</label> {{dealer_detail.khesra_no}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Current Address :</label> {{dealer_detail.currentaddress}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Permanent Address :</label> {{dealer_detail.permanentaddress}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Thana:</label> {{dealer_detail.thana}}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">City :</label> {{dealer_detail.city}}</div>
+                </div>
+
+                <div class="mt-5 text-center"><a href="/" class="btn btn-danger">Back to Home</a></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h3 class="text-right">Download Files Here</h4>
+              </div>
+                <div class="d-flex justify-content-between align-items-center experience"><span>Computer Certificate:</span> <a href="{{dealer_detail.computer_file.url}}">Download File</a></div><br>
+                <div class="col-md-12"><label class="labels">Aadhar Card : </label><a href="{{dealer_detail.aadhar_file.url}}">Download File</a></div> <br>
+                <div class="col-md-12"><label class="labels">10th Marksheet : </label><a href="{{dealer_detail.matric_file.url}}">Download File</a></div> <br>
+                <div class="col-md-12"><label class="labels">12th Marksheet: </label><a href="{{dealer_detail.inter_file.url}}">Download File</a></div> <br>
+                <div class="col-md-12"><label class="labels">Graduation Marksheet : </label><a href="{{dealer_detail.graduation_file.url}}">Download File</a></div> <br>
+                <div class="col-md-12"><label class="labels">Post Graduation Marksheet : </label><a href="{{dealer_detail.post_graduation_file.url}}">Download File</a></div> <br>
+                <div class="col-md-12"><label class="labels">Cast Certificate: </label><a href="{{dealer_detail.caste_file.url}}">Download File</a></div> <br>
+                <div class="col-md-12"><label class="labels">Residence Certificate : </label><a href="{{dealer_detail.residence_file.url}}">Download File</a></div> <br>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Checkout example · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/"> -->
+    <!-- Custom styles for this template -->
+    <!--<link href="form-validation.css" rel="stylesheet">-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>New Dealer Apply </title>
+  </head>
+  <body class="bg-light">
+    <!-- Navigation-->
+    <nav class="navbar navbar-light static-top" style="background-color: #e3f2fd;">
+        <div class="container">
+            <a class="navbar-brand" href="#!">Katihar District</a>
+            <a class="btn btn-success btn-sm" href="#">Contact Us</a>
+        </div>
+    </nav>
+&hairsp;
+
+&nbsp;
+    {% block content %}
+
+    <!-- Masthead -->
+
+
+     <div class="alert alert-success " role="alert">
+     <h2 class="text-center"> Awesome!</h2>
+     <h1 class="mb-5 text-center">Thank You {{last_register_dealer.full_name}} for Your Registration </h1>
+
+      <h4 class="text-center"><strong> You have successfully Registered with us</strong></h4>
+         <h4 class="text-center">Your Registration No. is {{last_register_dealer.id}} Please Note down </h4>
+    </div>
+
+    <div class="text-center">
+      <a style ="margin-top:15px;" href="{% url 'home' %}"><button class="btn text-right btn-success" type="submit">Back To Home</button></a>
+    </div>
+
+    {% endblock content %}
+
+
+
+<!--
+    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="form-validation.js"></script> -->
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script src="{% static 'js/jquery.js' %}"> </script>
+<script src="{% static 'js/proper.js' %}"> </script>
+<script src="{% static 'js/bootstrap.min.js'%}"> </script>
